@@ -1,0 +1,59 @@
+<div class="authenticate-page">
+    <div class="homepage-navbar">
+        <h4 routerLink="/">SB Hospital</h4>
+        <button class="btn btn-outline-secondary" routerLink="/authenticate">Sign In</button>
+    </div>
+    <div class="authentication-form">
+
+        <!-- login -->
+
+        <form class="authForm" *ngIf="authType === 'login'">
+            <h2>Login</h2>
+            <div class="form-floating mb-3 authFormInputs">
+                <input type="email" class="form-control" id="floatingLoginEmail" placeholder="name@example.com" name="email" [(ngModel)]="email" />
+                <label for="floatingLoginEmail">Email address</label>
+            </div>
+            <div class="form-floating mb-3 authFormInputs">
+                <input type="password" class="form-control" id="floatingLoginPassword" placeholder="Password" name="password" [(ngModel)]="password" /> 
+                <label for="floatingLoginPassword">Password</label>
+            </div>
+ 
+            <button type="submit" class="btn btn-primary" (click)="login()">Sign in</button>
+    
+            <p>Not registered? <span (click)="changeAuthType('register')">Register</span></p>
+        </form>
+
+
+        <!-- Register -->
+
+        <form class="authForm" *ngIf="authType==='register'">
+            <h2>Register</h2>
+            <div class="form-floating mb-3 authFormInputs">
+                <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username" [(ngModel)]="username" />
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating mb-3 authFormInputs">
+                <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" name="email" [(ngModel)]="email" />
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3 authFormInputs">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password" /> 
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3 authFormInputs">
+                <select class="form-control" id="floatingLoginUserType" name="userType" [(ngModel)]="userType">
+                    <option value="" selected>Choose userType</option>
+                    <option value="user">User</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <label for="floatingLoginUserType">UserType</label>
+            </div>
+    
+            <button class="btn btn-primary" (click)="register()">Sign up</button>
+            <p>Already registered? <span (click)="changeAuthType('login')">Login</span></p>
+        </form>
+
+
+    </div>
+</div>

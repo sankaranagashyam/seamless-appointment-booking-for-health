@@ -1,0 +1,139 @@
+
+<div class="admin-home-page">
+
+    <div class="navbar-main">
+        <h3>SB Hospital</h3>
+    
+        <div class="navbar-options">
+            <p [ngClass]="adminDisplayContent === 'doctors' ? 'selected' : ''" (click)="adminDisplayContent = 'doctors'">Doctors</p>
+            <p [ngClass]="adminDisplayContent === 'approvals' ? 'selected' : ''"  (click)="adminDisplayContent = 'approvals'">Approval Requests</p>
+            <p [ngClass]="adminDisplayContent === 'users' ? 'selected' : ''"  (click)="adminDisplayContent = 'users'">Users</p>
+            <p [ngClass]="adminDisplayContent === 'appointments' ? 'selected' : ''"  (click)="adminDisplayContent = 'appointments'">Appointments</p>
+        </div>
+        <button (click)="logout()">Logout</button>
+    </div>
+    
+
+    <div class="admin-home-container">
+        <div class="admin-home-header">
+            <h4>Admin</h4>
+            <!-- <mat-icon *ngIf="NotificationDisplay === false" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = true" >textsms</mat-icon>
+            <mat-icon *ngIf="NotificationDisplay === true" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = false" >textsms</mat-icon> -->
+        </div>
+
+        <!-- <div class="notifications-container"  *ngIf="NotificationDisplay === true">
+            <h3>Notifications</h3>
+            <hr>
+            <div class="notifications">
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+            </div>
+        </div> -->
+
+        <!-- doctors list -->
+
+        <div class="admin-home-body" *ngIf="adminDisplayContent === 'doctors'">
+            <h3>Available doctors</h3>
+            <div class="doctors-list">
+                <div *ngFor="let doctor of availableDoctors">
+                    <div class="doctor" >
+                        <h4>{{doctor.doctorName}}</h4>
+                        <p><b>Specialization: </b>{{doctor.specialization}}</p>
+                        <p><b>Experience: </b>{{doctor.experience}} years</p>
+                        <p><b>Hospital: </b>{{doctor.hospital}}</p>
+                        <p><b>Address: </b>{{doctor.address}}</p>
+                        <p><b>Timings: </b>{{doctor.availableFrom}} - {{doctor.availableTo}}</p>
+                        <p><b>Fee: </b>&#8377; {{doctor.fee}}/-</p>
+                        <button mat-raised-button color="warn" (click)="rejectDoctor(doctor._id)">Suspend</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Approval requests -->
+        <div class="admin-home-body" *ngIf="adminDisplayContent === 'approvals'">
+            <h3>Approval Requests</h3>
+            <div class="doctors-list">
+
+                <div *ngFor="let doctor of approvalDoctors">
+                    <div class="doctor">
+                        <h4>{{doctor.doctorName}}</h4>
+                        <p><b>Specialization: </b>{{doctor.specialization}}</p>
+                        <p><b>Experience: </b>{{doctor.experience}} years</p>
+                        <p><b>Hospital: </b>{{doctor.hospital}}</p>
+                        <p><b>Address: </b>{{doctor.address}}</p>
+                        <p><b>Timings: </b>{{doctor.availableFrom}} - {{doctor.availableTo}}</p>
+                        <p><b>Fee: </b>&#8377; {{doctor.fee}}/-</p>
+                        <button mat-raised-button color="primary" (click)="approveDoctor(doctor._id)">Approve</button>
+                    </div>
+                </div>
+                <p *ngIf="doctors.length === 0">No requests..</p>
+            </div>
+        </div>
+
+        <!-- Users -->
+
+        <div class="admin-home-body" *ngIf="adminDisplayContent === 'users'">
+            <h3>Users</h3>
+            <div class="appointments-list">
+                <div *ngFor="let user of users">
+                    <div class="appointment" >
+                        <span>
+                            <h5>Username</h5>
+                            <p>{{user.username}}</p>
+                        </span>
+                        <span>
+                            <h5>Email</h5>
+                            <p>{{user.email}}</p>
+                        </span>
+                        <span>
+                            <h5>UserType</h5>
+                            <p>{{user.usertype}}</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+        <!-- Appointments -->
+
+        <div class="admin-home-body" *ngIf="adminDisplayContent === 'appointments'">
+            <h3>Appointments</h3>
+            <div class="appointments-list">
+
+                <div class="appointment" *ngFor="let booking of bookings">
+                    <span>
+                        <h5>Patient name</h5>
+                        <p>{{booking.userName}}</p>
+                    </span>
+                    <span>
+                        <h5>Doctor</h5>
+                        <p>{{booking.doctorName}}</p>
+                    </span>
+                    <span>
+                        <h5>Hospital</h5>
+                        <p>{{booking.hospital}}</p>
+                    </span>
+                    <span>
+                        <h5>Date & Time</h5>
+                        <p>{{booking.date}} - {{booking.time}}</p>
+                    </span>
+                    <span>
+                        <h5>Status</h5>
+                        <p>{{booking.status}}</p>
+                    </span>
+                    <button *ngIf="booking.status === 'Accepted'" mat-raised-button color="warn" (click)="cancelBooking(booking._id)">Cancel</button>
+                    <h4 *ngIf="booking.status !== 'Accepted'">Cancelled</h4>
+                </div>
+
+               
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

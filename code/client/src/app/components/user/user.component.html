@@ -1,0 +1,93 @@
+
+<div class="user-home-page">
+
+    <div class="navbar-main">
+        <h3>SB Hospital</h3>
+    
+        <div class="navbar-options">
+            <p [ngClass]="userDisplayContent === 'home' ? 'selected' : ''" (click)="userDisplayContent = 'home'">Home</p>
+            <p [ngClass]="userDisplayContent === 'appointments' ? 'selected' : ''"  (click)="userDisplayContent = 'appointments'">Appointments</p>
+            
+        </div>
+        <button (click)="logout()">Logout</button>
+    </div>
+    
+
+    <div class="user-home-container">
+        <div class="user-home-header">
+            <h4>{{username}}</h4>
+            <!-- <mat-icon *ngIf="NotificationDisplay === false" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = true" >textsms</mat-icon>
+            <mat-icon *ngIf="NotificationDisplay === true" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = false" >textsms</mat-icon> -->
+        </div>
+
+        <!-- <div class="notifications-container"  *ngIf="NotificationDisplay === true">
+            <h3>Notifications</h3>
+            <hr>
+            <div class="notifications">
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+            </div>
+        </div> -->
+
+        <div class="user-home-body" *ngIf="userDisplayContent === 'home'">
+            <h3>Available doctors</h3>
+            <div class="doctors-list">
+                <div *ngFor="let doctor of availableDoctors">
+                    <div class="doctor" >
+                        <h4>{{doctor.doctorName}}</h4>
+                        <p><b>Specialization: </b>{{doctor.specialization}}</p>
+                        <p><b>Experience: </b>{{doctor.experience}} years</p>
+                        <p><b>Hospital: </b>{{doctor.hospital}}</p>
+                        <p><b>Address: </b>{{doctor.address}}</p>
+                        <p><b>Timings: </b>{{doctor.availableFrom}} - {{doctor.availableTo}}</p>
+                        <p><b>Fee: </b>&#8377; {{doctor.fee}}/-</p>
+                        <button  *ngIf="bookingDoctorId !== doctor._id" (click)="bookingDoctorId = doctor._id" mat-raised-button color="primary">Book now</button>
+                        <div *ngIf="bookingDoctorId === doctor._id">
+                            <div class="form-floating">
+                                <input type="datetime-local" class="form-control" id="floatingDateTime" placeholder="Password" [(ngModel)]="bookingDateTime" >
+                                <label for="floatingDateTime">Date & Time</label>
+                            </div>
+                            <button mat-raised-button color="primary" (click)="handleBooking(doctor._id, doctor.availableFrom, doctor.availableTo)">Book now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="user-home-body" *ngIf="userDisplayContent === 'appointments'">
+            <h3>Appointments</h3>
+            <div class="appointments-list">
+                <div *ngFor="let booking of bookings">
+                    <div class="appointment">
+                        <span>
+                            <h5>Hospital</h5>
+                            <p>{{booking.hospital}}</p>
+                        </span>
+                        <span>
+                            <h5>Address</h5>
+                            <p>{{booking.address}}</p>
+                        </span>
+                        <span>
+                            <h5>Doctor</h5>
+                            <p>{{booking.doctorName}}</p>
+                        </span>
+                        <span>
+                            <h5>Specialization</h5>
+                            <p>{{booking.specialization}}</p>
+                        </span>
+                        <span>
+                            <h5>Date & Time</h5>
+                            <p>{{booking.date}} - {{booking.time}}</p>
+                        </span>
+                        <button *ngIf="booking.status === 'Accepted'" mat-raised-button color="warn" (click)="cancelBooking(booking._id)">Cancel</button>
+                        <h4 *ngIf="booking.status !== 'Accepted'">Cancelled</h4>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

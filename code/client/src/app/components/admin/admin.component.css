@@ -1,0 +1,255 @@
+.admin-home-page{
+
+    display: flex;
+}
+
+.navbar-main{
+
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 96vh;
+    width: 19vw;
+    background-color: rgba(51, 23, 151, 0.489);
+    margin: 2vh 1vw;
+    border-radius: 0.4rem;
+    padding: 2vh 1vw;
+}
+
+.navbar-main h3{
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+
+.navbar-options{
+
+    margin-top: 6vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.navbar-options p{
+
+    color: aliceblue;
+    border: 1.5px solid #fff;
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.navbar-options .selected{
+
+    color: rgba(51, 23, 151, 0.489);
+    font-weight: 500;
+    background-color: rgb(220, 231, 237);
+    border: 1.5px solid rgb(220, 231, 237);
+}
+
+.navbar-main button{
+
+    position: relative;
+    top: 30vh;
+    width: 100%;
+    padding: 8px 0px;
+    border-radius: 0.6rem;
+    border: 1.5px solid aliceblue;
+    background-color: #ffffff00;
+    color: aliceblue;
+    font-weight: 500;
+}
+
+
+.admin-home-header{
+
+    background-color: rgba(231, 247, 247, 0.575);
+    border: 1px solid rgba(231, 247, 247, 0.747);
+    width: 77vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 25px;
+    border-radius: 0.6rem;
+}
+
+.admin-home-header h4{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(123, 97, 149, 0.751);
+}
+.notification-icon{
+
+    color: rgba(96, 19, 122, 0.687);
+    cursor: pointer;
+}
+
+
+/* notifications */
+
+.notifications-container{
+    position: absolute;
+    top: 10vh;
+    right: 3vw;
+    z-index: 10;
+    width: 30vw;
+    background-color: #fffffff7;
+    padding: 2vh 1.5vw;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(15px);
+
+}
+.notifications-container h3{
+
+    color: rgba(97, 17, 116, 0.644);
+    font-size: 1.2rem;
+    margin: 0;
+}
+.notifications-container hr{
+
+    color: rgba(97, 17, 116, 0.644);
+    height: 2px;
+    margin: 5px 10% 10px 0;
+}
+
+
+.notifications{
+
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+.notifications li{
+    font-size: 0.8rem;
+    color: rgba(43, 70, 94, 0.797);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+
+
+.admin-home-body{
+
+    width: 77vw;
+    height: 84vh;
+    background-color: rgba(231, 247, 247, 0.575);
+    border: 1px solid rgba(231, 247, 247, 0.747);
+    border-radius: 0.6rem;
+    padding: 2vh 1vw;
+}
+
+.admin-home-body h3{
+
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: rgba(70, 13, 123, 0.516);
+}
+
+.admin-home-body .doctors-list{
+
+    height: 74vh;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding: 2vh 0 3vh 2vw;
+    row-gap: 30px;
+}
+
+.doctor{
+    background-color: rgb(255, 255, 255);
+    width: 20vw;
+    height: fit-content;
+    padding: 3vh 1.5vw;
+    border-radius: 0.6rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+.doctor:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.doctor h4{
+
+    margin: 0;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgba(83, 26, 137, 0.409);
+}
+
+.doctor p{
+    margin: 0;
+    font-size: 0.9rem;
+    width: 90%;
+    margin-left: 5%;
+    color: rgba(56, 151, 183, 0.986);
+}
+.doctor p b{
+
+    font-weight: 500;
+    color: rgba(32, 107, 132, 0.986);
+}
+
+.doctor button{ 
+
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 15px;
+}
+.doctor span{ 
+
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.doctor span button{ 
+
+    width: 40%;
+    margin-left: 0;
+    margin-top: 15px;
+}
+
+
+.appointments-list{
+    height: 74vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 1.5vw 3vh 2vw;
+    gap: 20px;
+}
+.appointment{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    border-radius: 0.4rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px 20px;
+}
+.appointment:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.appointment span{
+
+    display: flex;
+    flex-direction: column;
+}
+.appointment span h5{
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(12, 62, 106, 0.632);
+}
+.appointment span p{
+    margin: 0;
+    color: rgba(17, 93, 160, 0.653);
+}
+.appointment h4{
+    margin: 0;
+    color: rgba(233, 47, 103, 0.653);
+}

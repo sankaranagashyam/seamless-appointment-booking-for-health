@@ -1,0 +1,115 @@
+
+<div class="user-home-page">
+
+    <div class="navbar-main">
+        <h3>SB Hospital</h3>
+    
+        <div class="navbar-options">
+            <p [ngClass]="doctorDisplayContent === 'home' ? 'selected' : ''" (click)="doctorDisplayContent = 'home'">Home</p>
+            <p [ngClass]="doctorDisplayContent === 'appointments' ? 'selected' : ''"  (click)="doctorDisplayContent = 'appointments'">Appointments</p>
+            
+        </div>
+        <button (click)="logout()">Logout</button>
+    </div>
+    
+
+    <div class="user-home-container">
+        <div class="user-home-header">
+            <h4>{{username}} (Doctor)</h4>
+            <!-- <mat-icon *ngIf="NotificationDisplay === false" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = true" >textsms</mat-icon>
+            <mat-icon *ngIf="NotificationDisplay === true" class="notification-icon" matBadge="15" matTooltip="Notifications" (click)="NotificationDisplay = false" >textsms</mat-icon> -->
+        </div>
+
+        <!-- <div class="notifications-container"  *ngIf="NotificationDisplay === true">
+            <h3>Notifications</h3>
+            <hr>
+            <div class="notifications">
+                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</li>
+            </div>
+        </div> -->
+
+
+        <!-- Update details -->
+
+        <div class="user-home-body" *ngIf="doctorDisplayContent === 'home'">
+            <h3>Update Details</h3>
+            
+            <div class="update-doctor-details">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingUpdateHospital"  name="hospital" [(ngModel)]="hospital">
+                    <label for="floatingUpdateHospital">Hospital</label>
+                </div>
+                <span class="span-70-30">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingUpdateAddress"  name="address" [(ngModel)]="address">
+                        <label for="floatingUpdateAddress">Address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingUpdateFee"  name="fee" [(ngModel)]="fee">
+                        <label for="floatingUpdateFee">Fee</label>
+                    </div>
+                </span>
+                <span class="span-30-70">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingUpdateExperience"  name="experience" [(ngModel)]="experience">
+                        <label for="floatingUpdateExperience">Experience (in years)</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingUpdateSpec"  name="specialization" [(ngModel)]="specialization">
+                        <label for="floatingUpdateSpec">Specialization</label>
+                    </div>
+                </span>
+                <span class="span-50-50">
+                    <div class="form-floating">
+                        <input type="time" class="form-control" id="floatingUpdateAvailFrom"  name="availableFrom" [(ngModel)]="availableFrom">
+                        <label for="floatingUpdateAvailFrom">Available From</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="time" class="form-control" id="floatingUpdateAvailTo"  name="availableTo" [(ngModel)]="availableTo">
+                        <label for="floatingUpdateAvailTo">Available Till</label>
+                    </div>
+                </span>
+
+                <button mat-raised-button color="primary" (click)="updateData()">Update</button>
+            </div>
+
+        </div>
+
+
+        <div class="user-home-body" *ngIf="doctorDisplayContent === 'appointments'">
+            <h3>Appointments</h3>
+            <div class="appointments-list">
+
+                <div *ngFor="let booking of bookings">
+                    <div class="appointment" *ngIf="booking.doctorId === doctorId" >
+                        <span>
+                            <h5>Patient name</h5>
+                            <p>{{booking.userName}}</p>
+                        </span>
+                        <span>
+                            <h5>Hospital</h5>
+                            <p>{{booking.hospital}}</p>
+                        </span>
+                        <span>
+                            <h5>Date</h5>
+                            <p>{{booking.date}}</p>
+                        </span>
+                        <span>
+                            <h5>Time</h5>
+                            <p>{{booking.time}}</p>
+                        </span>
+                        <span>
+                            <h5>Status</h5>
+                            <p>{{booking.status}}</p>
+                        </span>
+                        <button *ngIf="booking.status === 'Accepted'" mat-raised-button color="warn" (click)="cancelBooking(booking._id)">Cancel</button>
+                        <h4 *ngIf="booking.status !== 'Accepted'">Cancelled</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

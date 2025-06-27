@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.homePage{
+    height: fit-content;
+    width: 100%;
+}
+
+.homepage-navbar{
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+.homepage-navbar h4{
+    color:#38a3b3;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 500;
+}
+.homepage-navbar button{
+    font-size: 0.9rem;
+    padding: 5px 20px;
+}
+
+.hero-container{
+
+    background: url('../../../assets/home-bg.png');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hero-container button{
+    position: relative;
+    top: 65vh;
+    left: 8vw;
+    padding: 12px 35px;
+    border-radius: 0.4rem;
+    border: 1.5px solid #38a3b3;
+    background-color: #fff;
+    color: #38a3b3;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.hero-container button:hover{
+    border: 1.5px solid #388b97;
+    background-color: #38a3b3;
+    color: #f5fdfe;
+    cursor: pointer;
+}
+
+
+.home-about{
+    margin-top: 5vh;
+
+}
+.home-about h1{
+
+    text-align: center;
+    margin-bottom: 5vh;
+    color: #297581;
+}
+
+.home-about div{
+    margin: 0 2vw;
+    text-align: justify;
+}

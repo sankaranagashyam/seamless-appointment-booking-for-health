@@ -1,0 +1,88 @@
+.authenticate-page{
+
+}
+
+.homepage-navbar{
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    height: 10vh;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 999;
+}
+
+.homepage-navbar h4{
+    color:#38a3b3;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 500;
+}
+.homepage-navbar button{
+    font-size: 0.9rem;
+    padding: 5px 20px;
+}
+
+
+.authentication-form{
+    margin-top: 18vh;
+    margin-bottom: 10vh;
+}
+.authForm{
+
+    width: 34vw;
+    padding: 3vh 2vw;
+    margin-left: 33vw;
+    text-align: center;
+    background-color: rgba(241, 246, 251, 0.425);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.6rem;
+}
+.authForm h2{
+    color: #38a3b3;
+    margin-bottom: 3vh;
+}
+.authFormInputs{
+
+
+}
+.authFormInputs input{
+
+    height: 10vh;
+}
+.authFormInputs select{
+
+    
+}
+.authFormInputs select option{
+
+    
+}
+.authFormInputs label{
+
+    
+}
+
+.authForm button{
+    width: 50%;
+    height: 7vh;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 2rem;
+    margin-bottom: 20px;
+}
+
+.authForm p{
+    font-size: 0.9rem;
+}
+
+.authForm p span{
+    cursor: pointer;
+    color: #38a3b3;
+}
